@@ -1,6 +1,12 @@
 """Vectorized mobject types."""
+import numpy as np
+
+from manimlib.mobject.mobject import Mobject
 
 
-class VMobject:
+class VMobject(Mobject):
+    """Vectorized mobject - drawn using bezier curves."""
+
     def __init__(self):
-        raise NotImplementedError
+        """Initialize VMobject."""
+        super().__init__()
