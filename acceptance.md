@@ -4,32 +4,32 @@
 (Completed — 27/27 criteria met)
 
 ## Task 2: VMobject styling and Bezier path building
+(Completed — 27/27 criteria met)
+
+## Task 3: Animation engine with transforms, fading, and creation
 
 ### Acceptance Criteria
-- [ ] VMobject.set_fill(color, opacity) sets fill color and opacity independently
-- [ ] VMobject.set_stroke(color, width, opacity) sets stroke properties independently
-- [ ] VMobject.get_fill_color() returns the current fill color
-- [ ] VMobject.get_fill_opacity() returns the current fill opacity (default 0.0)
-- [ ] VMobject.get_stroke_color() returns the current stroke color
-- [ ] VMobject.get_stroke_width() returns the current stroke width
-- [ ] VMobject.has_fill() returns True only when fill_opacity > 0
-- [ ] VMobject.has_stroke() returns True when stroke_opacity > 0 and width > 0
-- [ ] VMobject.set_color() sets both fill and stroke color
-- [ ] VMobject.match_style() copies all style from another VMobject
-- [ ] VMobject.start_new_path(point) begins a new subpath at the given point
-- [ ] VMobject.add_line_to(point) adds a straight line segment
-- [ ] VMobject.add_quadratic_bezier_curve_to(handle, anchor) adds a quadratic curve
-- [ ] VMobject.add_smooth_curve_to(point) adds a smooth continuation curve
-- [ ] VMobject.close_path() closes the current subpath back to start
-- [ ] VMobject.set_points_as_corners(points) creates straight-line path through points
-- [ ] VMobject.make_smooth() adjusts handles for smooth curves through anchors
-- [ ] VMobject.make_jagged() converts smooth curves back to straight segments
-- [ ] VMobject.get_anchors() returns all anchor points (every other point)
-- [ ] VMobject.get_num_curves() returns the number of Bezier curve segments
-- [ ] VMobject.is_closed() returns True when start and end points coincide
-- [ ] VMobject.get_arc_length() returns approximate length of the curve
-- [ ] DashedVMobject creates a dashed version of any VMobject
-- [ ] Ellipse(width, height) creates an ellipse with the given dimensions
-- [ ] VGroup only accepts VMobject instances and raises TypeError for non-VMobjects
-- [ ] VMobject.set_backstroke() sets a behind-stroke
-- [ ] VMobject.pointwise_become_partial(vmobject, a, b) becomes portion a to b of a curve
+- [ ] smooth(0) returns 0, smooth(1) returns 1, smooth(0.5) returns 0.5
+- [ ] linear(t) returns t for all t in [0, 1]
+- [ ] rush_into(0) returns 0, rush_into(1) returns 1, accelerates at end
+- [ ] rush_from(0) returns 0, rush_from(1) returns 1, decelerates at end
+- [ ] there_and_back(0) returns 0, there_and_back(0.5) returns ~1, there_and_back(1) returns 0
+- [ ] double_smooth gives S-curve on each half
+- [ ] squish_rate_func maps a function to a sub-interval of [0,1]
+- [ ] Animation(mobject) stores the mobject and default run_time=1.0
+- [ ] Animation.begin() creates starting_mobject as copy
+- [ ] Animation.interpolate(alpha) calls interpolate_submobject with rate_func applied
+- [ ] Animation.finish() calls interpolate(final_alpha_value)
+- [ ] Transform(m1, m2) morphs m1 into m2 over the animation duration
+- [ ] Transform aligns point data between source and target
+- [ ] ReplacementTransform replaces source with target in scene after animation
+- [ ] MoveToTarget uses mobject.target as the transform target
+- [ ] ApplyMethod(mob.method, args) applies the method as a transform
+- [ ] FadeIn(mob) starts with opacity 0 and interpolates to full opacity
+- [ ] FadeIn(mob, shift=UP) also shifts upward during fade
+- [ ] FadeOut(mob) ends with opacity 0 and is a remover animation
+- [ ] FadeOut(mob, shift=DOWN) shifts downward during fade
+- [ ] FadeTransform cross-fades between source and target mobjects
+- [ ] ShowCreation progressively draws a VMobject from 0% to 100%
+- [ ] Write draws the outline first, then fills in the VMobject
+- [ ] ShowCreation with lag_ratio=1 draws submobjects one after another

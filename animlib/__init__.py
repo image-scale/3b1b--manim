@@ -10,3 +10,19 @@ from animlib.geometry import (
     Rectangle, Square, RoundedRectangle,
     Polyline, Elbow, Annulus,
 )
+from animlib.easing import (
+    smooth, linear, rush_into, rush_from, slow_into,
+    double_smooth, there_and_back, there_and_back_with_pause,
+    running_start, overshoot, not_quite_there, wiggle,
+    squish_rate_func, lingering, exponential_decay,
+)
+from animlib.animation import Animation, prepare_animation
+from animlib.transform import (
+    Transform, ReplacementTransform, MoveToTarget,
+    ApplyMethod, ApplyFunction, Restore,
+)
+from animlib.effects import (
+    FadeIn, FadeOut, FadeTransform,
+    ShowCreation, Uncreate, DrawBorderThenFill, Write,
+    ShowIncreasingSubsets,
+)
