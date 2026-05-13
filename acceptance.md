@@ -1,32 +1,35 @@
 # Acceptance Criteria
 
 ## Task 1: Core Mobject with positioning and geometric shapes
+(Completed — 27/27 criteria met)
+
+## Task 2: VMobject styling and Bezier path building
 
 ### Acceptance Criteria
-- [ ] Mobject can be created and stores 3D point data as numpy arrays
-- [ ] Mobject.shift(vector) translates all points by the given vector and returns self
-- [ ] Mobject.scale(factor) scales uniformly about center, scale(factor, about_point=p) scales about p
-- [ ] Mobject.rotate(angle) rotates about z-axis, rotate(angle, axis=UP) rotates about given axis
-- [ ] Mobject.move_to(point) centers the mobject at the given point
-- [ ] Mobject.next_to(target, direction, buff) places the mobject adjacent to target with buffer
-- [ ] Mobject.to_edge(direction, buff) moves the mobject to the screen edge
-- [ ] Mobject.get_center() returns the center of the bounding box
-- [ ] Mobject.get_width/get_height() returns the width/height of the bounding box
-- [ ] Mobject.set_width/set_height(value) resizes to target dimension
-- [ ] Mobject.get_top/get_bottom/get_left/get_right() returns edge center points
-- [ ] Group can hold multiple Mobjects as submobjects and operations apply to all
-- [ ] Mobject.copy() returns an independent copy with the same point data
-- [ ] Mobject.add/remove manage submobject hierarchy
-- [ ] Mobject.get_start/get_end return first/last points
-- [ ] Circle(radius=r) creates a circle with correct radius, centered at origin
-- [ ] Dot(point) creates a small filled circle at the given point
-- [ ] Arc(start_angle, angle, radius) creates a circular arc
-- [ ] Line(start, end) creates a line segment between two points
-- [ ] Arrow(start, end) creates a line with an arrowhead
-- [ ] Rectangle(width, height) creates a rectangle of given dimensions
-- [ ] Square(side_length) creates a square
-- [ ] Polygon(*vertices) creates a closed polygon through the vertices
-- [ ] RegularPolygon(n) creates a regular n-gon
-- [ ] Triangle() creates an equilateral triangle
-- [ ] Direction constants (UP, DOWN, LEFT, RIGHT, ORIGIN) are 3D numpy arrays
-- [ ] Color constants (RED, BLUE, GREEN, etc.) are defined as hex strings
+- [ ] VMobject.set_fill(color, opacity) sets fill color and opacity independently
+- [ ] VMobject.set_stroke(color, width, opacity) sets stroke properties independently
+- [ ] VMobject.get_fill_color() returns the current fill color
+- [ ] VMobject.get_fill_opacity() returns the current fill opacity (default 0.0)
+- [ ] VMobject.get_stroke_color() returns the current stroke color
+- [ ] VMobject.get_stroke_width() returns the current stroke width
+- [ ] VMobject.has_fill() returns True only when fill_opacity > 0
+- [ ] VMobject.has_stroke() returns True when stroke_opacity > 0 and width > 0
+- [ ] VMobject.set_color() sets both fill and stroke color
+- [ ] VMobject.match_style() copies all style from another VMobject
+- [ ] VMobject.start_new_path(point) begins a new subpath at the given point
+- [ ] VMobject.add_line_to(point) adds a straight line segment
+- [ ] VMobject.add_quadratic_bezier_curve_to(handle, anchor) adds a quadratic curve
+- [ ] VMobject.add_smooth_curve_to(point) adds a smooth continuation curve
+- [ ] VMobject.close_path() closes the current subpath back to start
+- [ ] VMobject.set_points_as_corners(points) creates straight-line path through points
+- [ ] VMobject.make_smooth() adjusts handles for smooth curves through anchors
+- [ ] VMobject.make_jagged() converts smooth curves back to straight segments
+- [ ] VMobject.get_anchors() returns all anchor points (every other point)
+- [ ] VMobject.get_num_curves() returns the number of Bezier curve segments
+- [ ] VMobject.is_closed() returns True when start and end points coincide
+- [ ] VMobject.get_arc_length() returns approximate length of the curve
+- [ ] DashedVMobject creates a dashed version of any VMobject
+- [ ] Ellipse(width, height) creates an ellipse with the given dimensions
+- [ ] VGroup only accepts VMobject instances and raises TypeError for non-VMobjects
+- [ ] VMobject.set_backstroke() sets a behind-stroke
+- [ ] VMobject.pointwise_become_partial(vmobject, a, b) becomes portion a to b of a curve
