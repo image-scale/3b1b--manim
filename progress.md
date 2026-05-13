@@ -13,3 +13,10 @@
 **Commit**: Add VMobject styling system with fill and stroke control, Bezier curve path building, and dashed outlines
 **Acceptance**: 27/27 criteria met
 **Verification**: tests FAIL on previous state, PASS on current state
+
+## Round 3
+**Task**: Task 3 — Animation engine with transforms, fading, and creation
+**Files created**: animlib/easing.py, animlib/animation.py, animlib/transform.py, animlib/effects.py, tests/test_animation_engine.py
+**Commit**: Add an animation engine with rate/easing functions, transform animations, fading effects, and creation animations
+**Acceptance**: 23/23 criteria met
+**Verification**: tests FAIL on previous state, PASS on current state

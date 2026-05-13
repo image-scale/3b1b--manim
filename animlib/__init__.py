@@ -26,3 +26,7 @@ from animlib.effects import (
     ShowCreation, Uncreate, DrawBorderThenFill, Write,
     ShowIncreasingSubsets,
 )
+from animlib.compose import (
+    AnimationGroup, Succession, LaggedStart, LaggedStartMap,
+)
+from animlib.scene import Scene
