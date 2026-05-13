@@ -523,6 +523,10 @@ class Mobject:
         self.target = self.copy()
         return self.target
 
+    @property
+    def animate(self):
+        return _AnimationBuilder(self)
+
     def save_state(self):
         self.saved_state = self.copy()
         return self
@@ -681,3 +685,33 @@ class Point(Mobject):
     def set_location(self, point):
         self.set_points([np.array(point, dtype=float)])
         return self
+
+
+class _AnimationBuilder:
+    def __init__(self, mobject):
+        self.mobject = mobject
+        self.methods = []
+        self.anim_kwargs = {}
+
+    def __getattr__(self, name):
+        method = getattr(self.mobject, name, None)
+        if method is None:
+            raise AttributeError(f"{self.mobject.__class__.__name__} has no attribute '{name}'")
+        if not callable(method):
+            raise AttributeError(f"'{name}' is not a method")
+
+        def method_recorder(*args, **kwargs):
+            self.methods.append((name, args, kwargs))
+            return self
+        return method_recorder
+
+    def set_anim_args(self, **kwargs):
+        self.anim_kwargs.update(kwargs)
+        return self
+
+    def build(self):
+        from animlib.transform import MoveToTarget
+        target = self.mobject.generate_target()
+        for method_name, args, kwargs in self.methods:
+            getattr(target, method_name)(*args, **kwargs)
+        return MoveToTarget(self.mobject, **self.anim_kwargs)

@@ -1,25 +1,27 @@
 # Acceptance Criteria
 
-## Task 1-3: (Completed)
+## Tasks 1-4: (Completed)
 
-## Task 4: Animation composition and Scene management
+## Task 5: Value tracking, .animate, color utilities, and path functions
 
 ### Acceptance Criteria
-- [ ] AnimationGroup plays multiple animations with lag_ratio=0 (parallel)
-- [ ] AnimationGroup with lag_ratio=1 plays animations sequentially
-- [ ] AnimationGroup auto-calculates run_time from sub-animation timings
-- [ ] Succession plays animations one after another (lag_ratio=1 default)
-- [ ] Succession correctly transitions between animations at boundaries
-- [ ] LaggedStart plays with small default lag_ratio (0.05)
-- [ ] LaggedStartMap applies animation factory to each submobject of a group
-- [ ] Scene.add(mobject) adds a mobject to the scene
-- [ ] Scene.remove(mobject) removes a mobject from the scene
-- [ ] Scene.play(animation) runs animation lifecycle (begin, progress, finish)
-- [ ] Scene.play auto-adds mobjects not already in scene
-- [ ] Scene.wait(duration) holds for specified duration
-- [ ] Scene.get_mobjects() returns current list of mobjects
-- [ ] Scene tracks time progression during play
-- [ ] Scene executes mobject updaters during play and wait
-- [ ] Scene.play accepts ReplacementTransform and correctly replaces mobjects
-- [ ] Scene.play with remover animation removes mobject after completion
-- [ ] AnimationGroup.begin/finish calls begin/finish on all sub-animations
+- [ ] ValueTracker(value=0) creates a tracker storing a numeric value
+- [ ] ValueTracker.get_value() returns the current value
+- [ ] ValueTracker.set_value(v) changes the stored value
+- [ ] ValueTracker.increment_value(dv) adds to the current value
+- [ ] ValueTracker works with animations (interpolation changes the value smoothly)
+- [ ] ExponentialValueTracker stores log(value), making interpolation multiplicative
+- [ ] mob.animate.shift(RIGHT) returns an animation builder that creates a MoveToTarget
+- [ ] mob.animate.scale(2).set_color(RED) chains multiple operations
+- [ ] color_to_rgb(hex) converts a hex color string "#RRGGBB" to RGB array [0,1]
+- [ ] color_to_rgba(hex, alpha) converts to RGBA array with alpha channel
+- [ ] rgb_to_hex(rgb) converts RGB array [0,1] to hex string "#RRGGBB"
+- [ ] hex_to_rgb(hex) converts hex string to RGB numpy array
+- [ ] interpolate_color(c1, c2, alpha) blends two colors at given ratio
+- [ ] color_gradient(colors, n) generates n colors interpolated between reference colors
+- [ ] average_color averages multiple colors
+- [ ] random_color() returns a valid random hex color
+- [ ] straight_path(start, end, alpha) returns linear interpolation
+- [ ] path_along_arc(angle) returns a function that moves along a circular arc
+- [ ] clockwise_path() returns path_along_arc(-PI)
+- [ ] counterclockwise_path() returns path_along_arc(PI)

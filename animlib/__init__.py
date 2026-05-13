@@ -30,3 +30,13 @@ from animlib.compose import (
     AnimationGroup, Succession, LaggedStart, LaggedStartMap,
 )
 from animlib.scene import Scene
+from animlib.tracker import ValueTracker, ExponentialValueTracker
+from animlib.color import (
+    color_to_rgb, color_to_rgba, rgb_to_hex, hex_to_rgb,
+    rgba_to_hex, color_to_int_rgb, color_to_int_rgba,
+    color_to_hex, invert_color, interpolate_color,
+    color_gradient, average_color, random_color, random_bright_color,
+)
+from animlib.paths import (
+    straight_path, path_along_arc, clockwise_path, counterclockwise_path,
+)
